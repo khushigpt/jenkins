@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building application...'
+                git url: 'https://github.com/khushigpt/jenkins.git', branch: 'main'
             }
         }
 
-        stage('Run App') {
+        stage('Build') {
             steps {
-                echo 'node app.js'
+                echo 'Building application'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing...'
+                echo 'Testing pipeline updated'
             }
         }
     }

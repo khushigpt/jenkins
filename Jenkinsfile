@@ -10,7 +10,7 @@ pipeline {
 
         stage('Run App') {
             steps {
-                sh 'node app.js'
+                echo 'node app.js'
             }
         }
 

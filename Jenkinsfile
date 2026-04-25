@@ -1,16 +1,20 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+        }
+    }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building application'
+                sh 'node -v'
+                sh 'echo Building app'
             }
         }
-
-        stage('Test') {
+        stage('Run App') {
             steps {
-                echo 'Testing pipeline updated'
+                sh 'node -e "console.log(\"Hello from Docker build\")"'
             }
         }
     }

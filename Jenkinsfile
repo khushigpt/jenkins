@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Run App') {
             steps {
-                sh 'node -e \"console.log('Hello from Docker build')\"'
+                sh "node -e \"console.log('Hello from Docker build')\""
             }
         }
     }

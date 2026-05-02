@@ -39,5 +39,10 @@ pipeline {
                 sh 'kubectl get svc'
             }
         }
+        stage('Debug Code') {
+            steps {
+                sh 'cat app.js'
+            }
+        }
     }
 }

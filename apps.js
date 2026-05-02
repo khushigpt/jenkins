@@ -1,1 +1,1 @@
-console.log("Hello from Jenkins CI");
+console.log("Hello from Jenkins CI -v2");

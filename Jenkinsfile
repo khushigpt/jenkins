@@ -6,6 +6,21 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Debug Code') {
+            steps {
+                sh 'cat app.js'
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 sh 'docker build --no-cache -t $DOCKER_IMAGE .'
@@ -37,11 +52,6 @@ pipeline {
             steps {
                 sh 'kubectl get pods'
                 sh 'kubectl get svc'
-            }
-        }
-        stage('Debug Code') {
-            steps {
-                sh 'cat app.js'
             }
         }
     }
